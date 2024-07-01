@@ -13,12 +13,6 @@ v
 Fapp/src/main/java/com/financiera/ecommerceapp/core/utils/FlowResult.kt,2/b/2b3049f371b32b00964efb812457a730f9e00934
 {
 Kapp/src/main/java/com/financiera/ecommerceapp/core/utils/GlobalConstants.kt,a/b/aba41912fb462858961dcc76d02f6899106b88ca
-…
-Uapp/src/main/java/com/financiera/ecommerceapp/data/remote/services/ApiServiceMovie.kt,0/f/0fb5a031e9828bafc354191f2d09cb4fc37161c2
-†
-Vapp/src/main/java/com/financiera/ecommerceapp/data/repositories/MovieRepositoryimpl.kt,a/6/a64a7f8fe7955ff395cd1728a669c1c8a1e0f20d
-„
-Tapp/src/main/java/com/financiera/ecommerceapp/domain/repositories/MovieRepository.kt,7/9/793827ae80c4b0e282aee0dfdaf40066bf1acb1f
 €
 Papp/src/main/java/com/financiera/ecommerceapp/data/remote/mappers/MovieMapper.kt,2/0/20cbe0f9f2a431e095c6ff16e368f5251629cd46
 v
@@ -105,3 +99,5 @@ eapp/src/main/java/com/financiera/ecommerceapp/domain/usecases/payments/Complete
 Uapp/src/main/java/com/financiera/ecommerceapp/data/remote/response/movies/MovieDto.kt,e/4/e44581d8892dc757c8f45724f2b9b2178d4ef56e
 Ž
 ^app/src/main/java/com/financiera/ecommerceapp/data/remote/response/movies/MovieListResponse.kt,9/3/9386847a75261ba67107ee5592c262e29518d49d
+p
+@app/src/test/java/com/financiera/ecommerceapp/ExampleUnitTest.kt,5/e/5ed1c894a9a8f09754c21979dcc5fb82892b5801

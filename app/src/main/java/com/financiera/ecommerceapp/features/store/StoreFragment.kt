@@ -1,5 +1,6 @@
 package com.financiera.ecommerceapp.features.store
 
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -34,8 +35,8 @@ class StoreFragment : Fragment(), CandysAdapter.OnRecipeClickListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        session()
         viewmodel.getCandyListPopularFromApi()
-
         binding.reciclerCandys.layoutManager = LinearLayoutManager(context)
 
         viewmodel.candyListModel.observe(viewLifecycleOwner){candyList ->
@@ -52,6 +53,17 @@ class StoreFragment : Fragment(), CandysAdapter.OnRecipeClickListener {
 
         binding.storeButtonPay.setOnClickListener {
             findNavController().navigate(R.id.action_storeFragment_to_paymentFragment)
+        }
+    }
+
+    private fun session(){
+        val prefs = requireContext().getSharedPreferences("myPreferences", Context.MODE_PRIVATE)
+        val email = prefs.getString("email", null)
+        val password = prefs.getString("password", null)
+        val name = prefs.getString("name", null)
+
+        if (email != null && password != null) {
+            binding.storeUser.text = email
         }
     }
 

@@ -41,7 +41,7 @@ class PaymentViewModel @Inject constructor(
     }
 
     private fun handleErrorState() {
-        // Aquí puedes manejar el estado de error
+        _errorMessage.postValue("Error al realizar el pago")
     }
 
     fun pushPaymentToApi(

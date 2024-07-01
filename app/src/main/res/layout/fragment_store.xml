@@ -8,6 +8,24 @@
     tools:context=".features.store.StoreFragment">
 
     <TextView
+        android:id="@+id/store_user"
+        style="@style/NunitoSemiBoldStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@color/purple"
+        android:minWidth="100dp"
+        android:paddingLeft="16dp"
+        android:paddingTop="4dp"
+        android:paddingRight="16dp"
+        android:paddingBottom="4dp"
+        android:textAlignment="center"
+        android:textAllCaps="true"
+        android:textColor="@color/white"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toStartOf="@+id/store_monto"
+        app:layout_constraintTop_toTopOf="parent" />
+    <TextView
         android:id="@+id/store_buttonPay"
         style="@style/NunitoSemiBoldStyle"
         android:layout_width="wrap_content"

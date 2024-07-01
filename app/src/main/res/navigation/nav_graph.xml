@@ -37,5 +37,9 @@
         android:id="@+id/paymentFragment"
         android:name="com.financiera.ecommerceapp.features.payment.PaymentFragment"
         android:label="fragment_payment"
-        tools:layout="@layout/fragment_payment" />
+        tools:layout="@layout/fragment_payment" >
+        <action
+            android:id="@+id/action_paymentFragment_to_storeFragment"
+            app:destination="@id/storeFragment" />
+    </fragment>
 </navigation>

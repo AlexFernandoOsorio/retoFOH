@@ -8,7 +8,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.financiera.ecommerceapp.R
-import com.financiera.ecommerceapp.core.utils.GlobalConstants.poster_path
+import com.financiera.ecommerceapp.core.utils.GlobalConstants.POSTER_URL
 import com.financiera.ecommerceapp.domain.models.movies.MovieModel
 
 class MoviesAdapter(
@@ -33,7 +33,7 @@ class MoviesAdapter(
 
         holder.movieName.text = movie.title
         Glide.with(holder.movieImage)
-            .load(poster_path + movie.image)
+            .load(POSTER_URL + movie.image)
             .centerCrop()
             .into(holder.movieImage);
 

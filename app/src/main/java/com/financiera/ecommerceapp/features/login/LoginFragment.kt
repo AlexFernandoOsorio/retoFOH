@@ -1,8 +1,10 @@
 package com.financiera.ecommerceapp.features.login
 
 import android.app.AlertDialog
+import android.content.Context
 import android.content.DialogInterface
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -24,6 +26,7 @@ class LoginFragment : Fragment() {
     private lateinit var binding: FragmentLoginBinding
 
     private val GOOGLE_SIGN_IN = 100
+    private lateinit var prefs: SharedPreferences.Editor
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
@@ -31,7 +34,7 @@ class LoginFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentLoginBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -45,12 +48,17 @@ class LoginFragment : Fragment() {
                 .requestIdToken(getString(R.string.default_web_client_id))
                 .requestEmail()
                 .build()
-
             val googleClient = GoogleSignIn.getClient(requireActivity(), googleConf)
             googleClient.signOut()
             startActivityForResult(googleClient.signInIntent, GOOGLE_SIGN_IN)
 
         }
+
+        binding.lbLoginOthersButton.setOnClickListener {
+            findNavController().navigate(R.id.action_loginFragment_to_storeFragment)
+        }
+
+        prefs = requireContext().getSharedPreferences("myPreferences", Context.MODE_PRIVATE).edit()
     }
 
 
@@ -65,8 +73,14 @@ class LoginFragment : Fragment() {
                     val credential = GoogleAuthProvider.getCredential(account.idToken,null)
                     FirebaseAuth.getInstance().signInWithCredential(credential).addOnCompleteListener{
                         if (it.isSuccessful){
-                            val string = account.email
-                            showSuccessDialog(string)
+                            val emailUser = account.email
+                            val passwordUser = account.idToken
+                            val nameUser = account.displayName
+                            prefs.putString("email",emailUser)
+                            prefs.putString("password",passwordUser)
+                            prefs.putString("name",nameUser)
+                            prefs.apply()
+                            showSuccessDialog(nameUser)
                         }else{
                             showAlert()
                         }
@@ -87,10 +101,10 @@ class LoginFragment : Fragment() {
         dialog.show()
     }
 
-    private fun showSuccessDialog(email : String?){
+    private fun showSuccessDialog(name : String?){
         val dialog = AlertDialog.Builder(requireContext())
             .setTitle("Error")
-            .setMessage("Bienvenido $email")
+            .setMessage("Bienvenido $name")
             .setPositiveButton("Aceptar", DialogInterface.OnClickListener { dialog, which ->
                 findNavController().navigate(R.id.action_loginFragment_to_storeFragment)
             })

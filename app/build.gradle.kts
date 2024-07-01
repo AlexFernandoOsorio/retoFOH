@@ -28,7 +28,21 @@ android {
     }
 
     buildTypes {
+        debug{
+            buildConfigField("String", "BASE_URL", "\"http://demo1819483.mockable.io/\"")
+            buildConfigField("String", "BASE_URL_IMAGE", "\"https://image.tmdb.org/t/p/w500\"")
+            buildConfigField("String", "END_POINT_MOVIES", "\"3/movie/upcoming\"")
+            buildConfigField("String", "END_POINT_CANDYS", "\"3/candy/upcoming\"")
+            buildConfigField("String", "END_POINT_TRANSACTION", "\"3/payment/transaction\"")
+            buildConfigField("String", "END_POINT_COMPLETE", "\"3/payment/complete\"")
+        }
         release {
+            buildConfigField("String", "BASE_URL", "\"http://demo1819483.mockable.io/\"")
+            buildConfigField("String", "BASE_URL_IMAGE", "\"https://image.tmdb.org/t/p/w500\"")
+            buildConfigField("String", "END_POINT_MOVIES", "\"3/movie/upcoming\"")
+            buildConfigField("String", "END_POINT_CANDYS", "\"3/candy/upcoming\"")
+            buildConfigField("String", "END_POINT_TRANSACTION", "\"3/payment/transaction\"")
+            buildConfigField("String", "END_POINT_COMPLETE", "\"3/payment/complete\"")
             isMinifyEnabled = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),

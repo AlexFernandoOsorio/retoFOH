@@ -29,29 +29,25 @@ class HomeFragment : Fragment(), MoviesAdapter.OnRecipeClickListener {
 
     private lateinit var moviesAdapter: MoviesAdapter
 
-    private var currentImageIndex = 0 // Índice de la imagen actual
+    private var currentImageIndex = 0
 
     private suspend fun changeImage() {
         while (true) {
             if (moviesAdapter.itemCount == 0) {
                 return
             }
-
             // Cambia al siguiente ítem en el RecyclerView
             currentImageIndex = (currentImageIndex + 1) % moviesAdapter.itemCount
             binding.popularRecyclerView.smoothScrollToPosition(currentImageIndex)
 
-            // Espera 6 segundos antes de ejecutar de nuevo
             delay(3000)
         }
     }
 
-    private val handler = Handler(Looper.getMainLooper())
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
 
         binding = FragmentHomeBinding.inflate(inflater,container,false)
         return binding.root
@@ -76,7 +72,7 @@ class HomeFragment : Fragment(), MoviesAdapter.OnRecipeClickListener {
 
                 binding.hlMovieTitle.text = moviesList[0].title
                 Glide.with(requireContext())
-                    .load(GlobalConstants.poster_path + moviesList[0].image)
+                    .load(GlobalConstants.POSTER_URL + moviesList[0].image)
                     .centerCrop()
                     .into(binding.hlMovieImage);
             }

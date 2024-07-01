@@ -1,11 +1,16 @@
 package com.financiera.ecommerceapp.features.payment
 
+import android.app.AlertDialog
+import android.content.Context
+import android.content.DialogInterface
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
+import com.financiera.ecommerceapp.R
 import com.financiera.ecommerceapp.databinding.FragmentPaymentBinding
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -25,6 +30,7 @@ class PaymentFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        session()
         binding.submitButton.setOnClickListener {
             val cardNumber = binding.cardNumber.text.toString()
             val expirationDate = binding.expirationDate.text.toString()
@@ -36,8 +42,34 @@ class PaymentFragment : Fragment() {
             }
             val name = binding.name.text.toString()
             val documentType = binding.documentType.selectedItem.toString()
+
             viewModel.pushPaymentToApi(cardNumber, expirationDate, cvv, email, name, documentType, documentNumber)
 
+            observe()
+        }
+    }
+
+    private fun observe(){
+        viewModel.errorMessage.observe(viewLifecycleOwner){
+            if (it.isNotEmpty()){
+                showAlert()
+            }
+        }
+        viewModel.paymentModel.observe(viewLifecycleOwner){
+            if (it != null && it.success){
+                showSuccessDialog()
+            }
+        }
+    }
+    private fun session(){
+        val prefs = requireContext().getSharedPreferences("myPreferences", Context.MODE_PRIVATE)
+        val email = prefs.getString("email", null)
+        val password = prefs.getString("password", null)
+        val name = prefs.getString("name", null)
+
+        if (email != null && password != null) {
+            binding.email.setText(email)
+            binding.name.setText(name)
         }
     }
 
@@ -88,5 +120,25 @@ class PaymentFragment : Fragment() {
         return digits.reversed().mapIndexed { index, d ->
             if (index % 2 == 1) d * 2 % 9 else d
         }.sum() % 10 == 0
+    }
+
+    private fun showAlert(){
+        val dialog = AlertDialog.Builder(requireContext())
+            .setTitle("Error")
+            .setMessage("Se ha producido un error")
+            .setPositiveButton("Aceptar",null)
+            .create()
+        dialog.show()
+    }
+
+    private fun showSuccessDialog(){
+        val dialog = AlertDialog.Builder(requireContext())
+            .setTitle("Success")
+            .setMessage("Pago Realizado")
+            .setPositiveButton("Aceptar", DialogInterface.OnClickListener { dialog, which ->
+                findNavController().navigate(R.id.action_paymentFragment_to_storeFragment)
+            })
+            .create()
+        dialog.show()
     }
 }
