@@ -1,18 +1,19 @@
 package com.financiera.ecommerceapp.features.login
 
 import android.app.AlertDialog
+import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import com.financiera.ecommerceapp.R
 import com.financiera.ecommerceapp.databinding.FragmentLoginBinding
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
-import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
 import dagger.hilt.android.AndroidEntryPoint
@@ -63,9 +64,9 @@ class LoginFragment : Fragment() {
                 if (account != null){
                     val credential = GoogleAuthProvider.getCredential(account.idToken,null)
                     FirebaseAuth.getInstance().signInWithCredential(credential).addOnCompleteListener{
-
                         if (it.isSuccessful){
-                            showAlert()
+                            val string = account.email
+                            showSuccessDialog(string)
                         }else{
                             showAlert()
                         }
@@ -85,4 +86,17 @@ class LoginFragment : Fragment() {
             .create()
         dialog.show()
     }
+
+    private fun showSuccessDialog(email : String?){
+        val dialog = AlertDialog.Builder(requireContext())
+            .setTitle("Error")
+            .setMessage("Bienvenido $email")
+            .setPositiveButton("Aceptar", DialogInterface.OnClickListener { dialog, which ->
+                findNavController().navigate(R.id.action_loginFragment_to_storeFragment)
+            })
+            .create()
+        dialog.show()
+    }
+
+
 }

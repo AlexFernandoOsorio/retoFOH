@@ -1,7 +1,7 @@
 package com.financiera.ecommerceapp.di
 
 import com.financiera.ecommerceapp.core.utils.GlobalConstants.BASE_URL
-import com.financiera.ecommerceapp.data.remote.services.ApiServiceMovie
+import com.financiera.ecommerceapp.data.remote.services.ApiServiceEcommerce
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -25,7 +25,7 @@ object NetworkModule {
 
     @Singleton
     @Provides
-    fun provideApiServiceMovie(retrofit: Retrofit): ApiServiceMovie {
-        return provideRetrofit().create(ApiServiceMovie::class.java)
+    fun provideApiServiceMovie(retrofit: Retrofit): ApiServiceEcommerce {
+        return provideRetrofit().create(ApiServiceEcommerce::class.java)
     }
 }

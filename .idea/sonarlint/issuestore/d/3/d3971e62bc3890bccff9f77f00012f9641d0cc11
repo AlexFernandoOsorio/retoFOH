@@ -1,2 +1,4 @@
 
-Nkotlin:S1481>"*Remove this unused "movie" local variable.(ì¿‚¶ıÿÿÿÿ8İ¼”È†2
+`kotlin:S6310I"Avoid hardcoded dispatchers.(©ÓœW8€êØï†2J$cb69db6f-85c1-4123-b312-65911c370b70
+•kotlin:S6311I"QRemove this dispatcher. It is pointless when used with only suspending functions.(©ÓœW8êØï†2J$3c793f8e-6b10-46ac-ac4f-703c001c73c2
+tkotlin:S1481X"*Remove this unused "movie" local variable.(ì¿‚¶ıÿÿÿÿ8–õĞï†2J$40580d87-5436-41dc-9c8c-6151e0a2e428
