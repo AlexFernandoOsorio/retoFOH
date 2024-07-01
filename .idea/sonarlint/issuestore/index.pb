@@ -103,3 +103,5 @@ Uapp/src/main/java/com/financiera/ecommerceapp/data/remote/response/movies/Movie
 ^app/src/test/java/com/financiera/ecommerceapp/data/repositories/EcommerceRepositoryimplTest.kt,b/e/bea67f891542369df1fd61b4763f81327b8ee9de
 €
 Papp/src/test/java/com/financiera/ecommerceapp/coroutineRule/CoroutineTestRule.kt,c/f/cf67f652bf3e78127268b90b6288157fa8121d86
+9
+	README.md,8/e/8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d
