@@ -1,0 +1,40 @@
+<?xml version="1.0" ?>
+<SmellBaseline>
+  <ManuallySuppressedIssues></ManuallySuppressedIssues>
+  <CurrentIssues>
+    <ID>ComplexCondition:PaymentFragment.kt$PaymentFragment$!validateCardNumber() || !validateExpirationDate() || !validateCVV() || !validateEmail() || !validateDocumentNumber()</ID>
+    <ID>ConstructorParameterNaming:MovieDto.kt$MovieDto$val backdrop_path: String</ID>
+    <ID>ConstructorParameterNaming:MovieDto.kt$MovieDto$val genre_ids: List&lt;Int&gt;</ID>
+    <ID>ConstructorParameterNaming:MovieDto.kt$MovieDto$val original_language: String</ID>
+    <ID>ConstructorParameterNaming:MovieDto.kt$MovieDto$val original_title: String</ID>
+    <ID>ConstructorParameterNaming:MovieDto.kt$MovieDto$val poster_path: String</ID>
+    <ID>ConstructorParameterNaming:MovieDto.kt$MovieDto$val release_date: String</ID>
+    <ID>ConstructorParameterNaming:MovieDto.kt$MovieDto$val vote_average: Double</ID>
+    <ID>ConstructorParameterNaming:MovieDto.kt$MovieDto$val vote_count: Int</ID>
+    <ID>ConstructorParameterNaming:MovieListResponse.kt$MovieListResponse$val total_pages: Int</ID>
+    <ID>ConstructorParameterNaming:MovieListResponse.kt$MovieListResponse$val total_results: Int</ID>
+    <ID>ConstructorParameterNaming:MovieModel.kt$MovieModel$val genre_ids: List&lt;Int&gt;</ID>
+    <ID>ConstructorParameterNaming:MovieModel.kt$MovieModel$val release_date: String</ID>
+    <ID>LongParameterList:PaymentViewModel.kt$PaymentViewModel$( cardNumber : String, expirationDate : String, cvv : String, email : String, name : String, documentType : String, documentNumber : String )</ID>
+    <ID>MagicNumber:HomeFragment.kt$HomeFragment$3000</ID>
+    <ID>MagicNumber:LoginFragment.kt$LoginFragment$100</ID>
+    <ID>MagicNumber:PaymentFragment.kt$PaymentFragment$10</ID>
+    <ID>MagicNumber:PaymentFragment.kt$PaymentFragment$3</ID>
+    <ID>MagicNumber:PaymentFragment.kt$PaymentFragment$8</ID>
+    <ID>MagicNumber:PaymentFragment.kt$PaymentFragment$9</ID>
+    <ID>MaxLineLength:PaymentFragment.kt$PaymentFragment$if</ID>
+    <ID>MaxLineLength:PaymentViewModel.kt$PaymentViewModel$val paymentRequest = PaymentRequest(cardNumber, expirationDate, cvv, email, name, documentType, documentNumber)</ID>
+    <ID>NewLineAtEndOfFile:ExampleUnitTest.kt$com.financiera.ecommerceapp.ExampleUnitTest.kt</ID>
+    <ID>NewLineAtEndOfFile:GetMovieListFromApiUseCase.kt$com.financiera.ecommerceapp.domain.usecases.movies.GetMovieListFromApiUseCase.kt</ID>
+    <ID>NewLineAtEndOfFile:MainActivity.kt$com.financiera.ecommerceapp.features.MainActivity.kt</ID>
+    <ID>NewLineAtEndOfFile:MoviesAdapter.kt$com.financiera.ecommerceapp.features.home.MoviesAdapter.kt</ID>
+    <ID>PrintStackTrace:LoginFragment.kt$LoginFragment$e</ID>
+    <ID>TooManyFunctions:PaymentFragment.kt$PaymentFragment : Fragment</ID>
+    <ID>UnusedParameter:NetworkModule.kt$NetworkModule$retrofit: Retrofit</ID>
+    <ID>UnusedPrivateProperty:HomeFragment.kt$HomeFragment$val movie = viewmodel.moviesListModel.value?.get(position)</ID>
+    <ID>UnusedPrivateProperty:MainActivity.kt$MainActivity$private lateinit var appBarConfiguration: AppBarConfiguration</ID>
+    <ID>UnusedPrivateProperty:StoreFragment.kt$StoreFragment$val name = prefs.getString("name", null)</ID>
+    <ID>VariableNaming:LoginFragment.kt$LoginFragment$private val GOOGLE_SIGN_IN = 100</ID>
+    <ID>WildcardImport:ExampleUnitTest.kt$import org.junit.Assert.*</ID>
+  </CurrentIssues>
+</SmellBaseline>

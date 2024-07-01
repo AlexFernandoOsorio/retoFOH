@@ -103,7 +103,7 @@ class LoginFragment : Fragment() {
 
     private fun showSuccessDialog(name : String?){
         val dialog = AlertDialog.Builder(requireContext())
-            .setTitle("Error")
+            .setTitle("Success")
             .setMessage("Bienvenido $name")
             .setPositiveButton("Aceptar", DialogInterface.OnClickListener { dialog, which ->
                 findNavController().navigate(R.id.action_loginFragment_to_storeFragment)
