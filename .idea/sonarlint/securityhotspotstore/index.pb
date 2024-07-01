@@ -99,5 +99,7 @@ eapp/src/main/java/com/financiera/ecommerceapp/domain/usecases/payments/Complete
 Uapp/src/main/java/com/financiera/ecommerceapp/data/remote/response/movies/MovieDto.kt,e/4/e44581d8892dc757c8f45724f2b9b2178d4ef56e
 Ž
 ^app/src/main/java/com/financiera/ecommerceapp/data/remote/response/movies/MovieListResponse.kt,9/3/9386847a75261ba67107ee5592c262e29518d49d
-p
-@app/src/test/java/com/financiera/ecommerceapp/ExampleUnitTest.kt,5/e/5ed1c894a9a8f09754c21979dcc5fb82892b5801
+Ž
+^app/src/test/java/com/financiera/ecommerceapp/data/repositories/EcommerceRepositoryimplTest.kt,b/e/bea67f891542369df1fd61b4763f81327b8ee9de
+€
+Papp/src/test/java/com/financiera/ecommerceapp/coroutineRule/CoroutineTestRule.kt,c/f/cf67f652bf3e78127268b90b6288157fa8121d86
